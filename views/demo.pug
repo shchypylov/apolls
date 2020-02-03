@@ -1,0 +1,17 @@
+extends ../layouts/default
+
+block content
+    form.w-25(action='/demo/submit' method='POST')
+        .form-group
+            label(for='object') Object you are curious about
+            input#object.form-control(type='text', name='object', placeholder='Object goes here')
+
+        .form-group
+            label(for='question') Question you would like to ask
+            input#question.form-control(type='text', name='question', placeholder='Question goes here')
+
+        .form-group
+            label(for='emails') Emails of fellas which option you would like to know
+            input#emails.form-control(type='text', name='emails', placeholder='Emails goes here')
+
+        button.btn.btn-primary(type='submit') Submit

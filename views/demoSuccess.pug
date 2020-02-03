@@ -1,0 +1,17 @@
+extends ../layouts/default
+
+block content
+    h1 Greatly done!
+
+    div So you were about to ask question like
+        span(class="alert alert-success") #{question}
+        span this fellas:
+        span(class="alert alert-success") #{emails}
+        span about this guy:
+        span(class="alert alert-success") #{object}
+
+    i Wanna make it happen?
+
+    a(href='/login') Login now &nbsp;
+
+    span and start your anonymous polls!

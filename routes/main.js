@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
   } else {
     res.cookie('token', '');
   }
-  res.render('main', {...pageContexts.main, isAuthenticated: req.session.token})
+  res.render('main', pageContexts.main)
 });
 
 router.get('/demo', (_, res) => {
@@ -17,12 +17,12 @@ router.get('/demo', (_, res) => {
 });
 
 router.post('/demo/submit', (req, res) => {
-  req.session.demoData = req.body
+  req.session.demoData = req.body;
   res.redirect(303, `/demo/submit/success`)
 });
 
 router.get('/demo/submit/success/', (req, res) => {
-  res.locals.demoData = req.session.demoData
+  res.locals.demoData = req.session.demoData;
   res.render('demoSuccess', req.query)
 });
 

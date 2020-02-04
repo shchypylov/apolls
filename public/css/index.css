@@ -1,3 +1,9 @@
 body {
     background: url("/static/images/back.jpg") no-repeat scroll center center / cover;
 }
+
+.logo {
+    width: 75px;
+    height: 75px;
+    background: orange;
+}

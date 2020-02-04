@@ -8,14 +8,17 @@ block content
         div.d-flex.align-items-center So you were about to ask question like
             div(class="alert alert-success m-0") #{demoData.question}
             span this fellas:
-            div(class="alert alert-success m-0") #{demoData.emails}
+            div(class="alert alert-success m-0")= demoData.emails
             span about this guy:
             div(class="alert alert-success m-0") #{demoData.object}
 
-        i Wanna make it happen?&nbsp;
-        a(href='/login') Login now &nbsp;
-        span and start your anonymous polls!
-    else 
+        if isAuthenticated != null
+            p Great work! Let's go further!
+        else
+            i Wanna make it happen?&nbsp;
+            a(href='/auth/login') Login now &nbsp;
+            span and start your anonymous polls!
+    else
         p.alert-warning Time expired!
         a(href='/') Let's go home!
 

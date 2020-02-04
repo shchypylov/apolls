@@ -3,11 +3,11 @@ const bodyParser = require("body-parser");
 const passport = require("passport");
 const cookieParser = require('cookie-parser');
 const cookieSession = require('cookie-session');
-const {cookieSecret} = require("./credentials.json")
+const {cookieSecret} = require("./credentials.json");
 
 
 const mainRouter = require("./routes/main");
-const authRouter = require("./routes/user")
+const authRouter = require("./routes/user");
 const auth = require("./utils/auth");
 
 
@@ -34,23 +34,36 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
-  console.log(req.originalUrl);
   if (req.originalUrl !== '/demo/submit/success') {
     delete req.session.demoData
   }
   next()
-})
+});
+
+app.use((req, res, next) => {
+  const [activeUrl] = req.originalUrl.split("/").filter(Boolean);
+  res.locals.activeUrl = activeUrl;
+  next()
+});
+
+app.use('/auth', authRouter);
+
+app.use((req, res, next) => {
+  if (req.session.token) {
+    res.locals.isAuthenticated = true;
+  }
+  next()
+});
 
 app.use(mainRouter);
-app.use(authRouter);
 app.use((req, res) => {
   res.render("404")
-})
+});
 
 app.use((err, req, res, next) => {
   console.log(err);
   res.render("500")
-})
+});
 
 app.listen(PORT, () => {
   console.log("Server is up!")

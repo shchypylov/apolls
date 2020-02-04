@@ -3,15 +3,20 @@ extends ../layouts/default
 block content
     h1 Greatly done!
 
-    div So you were about to ask question like
-        span(class="alert alert-success") #{question}
-        span this fellas:
-        span(class="alert alert-success") #{emails}
-        span about this guy:
-        span(class="alert alert-success") #{object}
 
-    i Wanna make it happen?
+    if demoData != null
+        div.d-flex.align-items-center So you were about to ask question like
+            div(class="alert alert-success m-0") #{demoData.question}
+            span this fellas:
+            div(class="alert alert-success m-0") #{demoData.emails}
+            span about this guy:
+            div(class="alert alert-success m-0") #{demoData.object}
 
-    a(href='/login') Login now &nbsp;
+        i Wanna make it happen?&nbsp;
+        a(href='/login') Login now &nbsp;
+        span and start your anonymous polls!
+    else 
+        p.alert-warning Time expired!
+        a(href='/') Let's go home!
 
-    span and start your anonymous polls!
+

@@ -4,7 +4,10 @@ block content
     h1 #{title}
     h2 #{body}
     div
-        p Start with&nbsp;
-            a(href="/login") login&nbsp;
-            span or try&nbsp;
-            a(href="/demo") demo run
+        if isAuthenticated != null
+            p Great, you are logged in!
+        else
+            p Start with&nbsp;
+                a(href="/auth/google") login&nbsp;
+                span or try&nbsp;
+                a(href="/demo") demo run

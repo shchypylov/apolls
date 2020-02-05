@@ -2,6 +2,9 @@ extends ../layouts/default
 
 block content
     form.w-25(action='/demo/submit' method='POST')
+    
+        input(type='hidden',  name='_csrf', value=csrfToken)
+
         .form-group
             label(for='object') Object you are curious about
             input#object.form-control(type='text', name='object', placeholder='Object goes here')

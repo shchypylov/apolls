@@ -1,12 +1,15 @@
 header
     nav.navbar.navbar-expand-lg.navbar-light.bg-light
         a.navbar-brand(href='/')
-            img.logo(src="/static/images/icon.png", alt="logo")
+            img.logo(src="/static/images/icon.png" alt="logo")
         div.collapse.navbar-collapse
             ul.navbar-nav.mr-auto
                 li(class=!activeUrl ? 'active' : '').nav-item
                     a.nav-link(href='/') Home
                 li(class=activeUrl === 'demo' ? 'active' : '').nav-item
                     a.nav-link(href='/demo') Demo
-                li(class=activeUrl === 'auth' ? 'active' : '').nav-item
-                    a.nav-link(href='/auth/logout') Logout
+                if isAuthenticated != null
+                    li(class=activeUrl === 'notes' ? 'active' : '').nav-item
+                        a.nav-link(href='/notes') Notes
+                    li(class=activeUrl === 'auth' ? 'active' : '').nav-item
+                        a.nav-link(href='/auth/logout') Logout

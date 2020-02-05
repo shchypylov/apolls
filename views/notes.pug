@@ -1,0 +1,17 @@
+extends ../layouts/default
+
+block content
+    h1 #{title}
+    form.w-25(action='/notes/add' method='POST')
+
+        input(type='hidden',  name='_csrf', value=csrfToken)
+
+        .form-group
+            label(for='text') Jot down your note here
+            input#text.form-control(type='text' name='text' placeholder='Note text')
+
+        button.btn.btn-primary(type='submit') Submit
+
+    ul.list-group.w-25
+        for note in notes
+            li.list-group-item=note.text

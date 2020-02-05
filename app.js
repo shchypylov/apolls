@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser')
 const cookieSession = require('cookie-session')
 const csurf = require('csurf')
 
-const { cookieSecret } = require('./credentials.js/index.js')
+const { cookieSecret } = require('./credentials.js')
 const mainRouter = require('./routes/main')
 const authRouter = require('./routes/user')
 const auth = require('./utils/auth')

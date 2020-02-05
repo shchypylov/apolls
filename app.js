@@ -18,6 +18,8 @@ const app = express()
 auth(passport)
 app.use(passport.initialize())
 
+console.log('port', process.env.PORT)
+
 app.use(
     cookieSession({
         name: 'session',

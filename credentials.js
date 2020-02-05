@@ -3,7 +3,7 @@ module.exports = {
         clientID:
             '585386088198-4k29koncgnvffgq11tqe2cngdittoq9l.apps.googleusercontent.com',
         clientSecret: 'YW3McFKClDrPuFI9UZj2C8E_',
-        callbackURL: `http://localhost:${process.env.PORT ||
+        callbackURL: `http://0.0.0.0:${process.env.PORT ||
             3000}/auth/google/callback`,
     },
     cookieSecret: ['asdfasdfasdfasdasdfas3214h23432j4l'],

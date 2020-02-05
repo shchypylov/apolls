@@ -7,5 +7,6 @@ RUN npm install
 COPY . .
 EXPOSE 3000
 
-CMD ["PORT=49160 node", "app.js"]
+ENV port 49160
+CMD ["node", "app.js"]
 

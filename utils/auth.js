@@ -1,7 +1,7 @@
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy
 const {
     google: { clientID, clientSecret, callbackURL },
-} = require('../credentials.js/index.js')
+} = require('../credentials.js')
 
 module.exports = passport => {
     passport.serializeUser((user, done) => {

@@ -7,6 +7,6 @@ RUN npm install
 COPY . .
 EXPOSE 3000
 
-ENV PORT 49160
+ENV GOOGLE_PORT 49160
 CMD ["node", "app.js"]
 

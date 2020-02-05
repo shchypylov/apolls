@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const {
     mongo: { connectionString },
-} = require('../credentials.js/index.js')
+} = require('../credentials.js')
 
 if (!connectionString) {
     console.error('MongoDB connection string missing!')
